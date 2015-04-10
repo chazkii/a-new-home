@@ -1,4 +1,5 @@
-# node-js-getting-started
+[a-new-home](https://a-new-home.herokuapp.com/)
+==========
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
@@ -9,21 +10,43 @@ This application support the [Getting Started with Node on Heroku](https://devce
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
 $ npm install
 $ npm start
 ```
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+## Deployment
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
+The site is deployed on [Heroku](http://heroku.com/).
+
+> To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
+
+You'll also need to do some configuration beforehand:
+
+~~~sh
+# First log in to Heroku.
+heroku login
+# Add the Heroku remote to the repository.
+heroku git:remote -r heroku -a a-new-home
+# Retrieve the deploy branch from GitHub.
+git fetch --all
+~~~
+
+Then for each deploy:
+
+~~~sh
+# Switch to the deploy branch.
+git checkout deploy
+# Rebase it from master.
+git rebase master
+# Push it to GitHub.
+git push origin deploy
+# Then push the code to Heroku.
+git push heroku deploy:master
+# Then see your thing running!
+heroku open
+~~~
 
 ## Documentation
 
