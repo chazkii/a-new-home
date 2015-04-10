@@ -17,12 +17,14 @@
     "heroku",
     "express"
   ],
+  "devDependencies": {
+    "nodemon": "^1.3.7"
+  },
   "dependencies": {
     "express": "~4.9.x",
-    "handlebars": "^3.0.1",
     "hbs": "^3.0.1"
   },
   "scripts": {
-    "start": "node src/server.js"
+    "start": "nodemon src/server.js"
   }
 }
