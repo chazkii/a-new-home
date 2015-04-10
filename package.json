@@ -18,9 +18,10 @@
     "express"
   ],
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "handlebars": "^3.0.1"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/server.js"
   }
 }

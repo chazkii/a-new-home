@@ -18,7 +18,7 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Deployment
 
-The site is deployed on [Heroku](http://heroku.com/).
+The site is deployed on [Heroku](http://heroku.com/) and also uses the [MongoLab addon](https://addons.heroku.com/mongolab).
 
 > To deploy the site, you'll need the Heroku Toolbelt: `brew install heroku-toolbelt`.
 
