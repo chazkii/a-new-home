@@ -18,6 +18,8 @@
     "express"
   ],
   "devDependencies": {
+    "eslint": "^0.18.0",
+    "jscs": "^1.12.0",
     "nodemon": "^1.3.7"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "hbs": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "test": "eslint src/ && jscs src/"
   }
 }

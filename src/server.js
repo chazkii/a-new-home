@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
     res.locals = {
         test: 'Hi team!',
         list: ['cat', 'dog']
-    }
+    };
 
     res.render('index');
 });
