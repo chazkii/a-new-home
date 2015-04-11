@@ -7,13 +7,15 @@ import AboutSuburb from './pages/aboutSuburb.jsx';
 import FilteredSuburb from './pages/filterdSuburb.jsx';
 import FindASuburb from './pages/findASuburb.jsx';
 import ShowMySuburb from './pages/showMySuburb.jsx';
+import ExampleCharts from './pages/exampleCharts.jsx';
 
 var pages = {
   index: Index,
   aboutSuburb: AboutSuburb,
   filteredSuburb: FilteredSuburb,
   findASuburb: FindASuburb,
-  showMySuburb: ShowMySuburb
+  showMySuburb: ShowMySuburb,
+  exampleCharts: ExampleCharts
 };
 
 export default React.createClass({
