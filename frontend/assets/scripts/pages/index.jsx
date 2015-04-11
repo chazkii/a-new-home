@@ -1,14 +1,9 @@
 'use strict';
 
 import React from 'react';
+import SuburbPicker from '../components/suburbPicker.jsx';
 
 export default React.createClass({
-  aboutSuburbGo: function() {
-    var pageData = {
-      suburb: this.refs.suburbSelection.getDOMNode().value
-    }
-    this.props.transitionCb('aboutSuburb', pageData);
-  },
   render: function() {
     return (
       <div>

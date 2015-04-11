@@ -1,4 +1,8 @@
-window.FilteredSuburb = React.createClass({
+import React from 'react';
+import SuburbPicker from '../components/suburbPicker.jsx';
+import SelectRooms from '../components/selectRooms.jsx';
+
+export default React.createClass({
   render: function() {
     return (
       <div>
@@ -6,7 +10,8 @@ window.FilteredSuburb = React.createClass({
         <h2>Average House Price</h2>
         <p>{this.props.pageData.bedrooms} bedrooms</p>
         <p>$100</p>
-
+        <SelectRooms transitionCb={this.props.transitionCb} suburb={this.props.pageData.suburb} />
+        <SuburbPicker transitionCb={this.props.transitionCb} />
       </div>
     );
   }

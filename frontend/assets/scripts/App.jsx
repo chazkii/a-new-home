@@ -4,6 +4,7 @@ import React from 'react';
 
 import Index from './pages/index.jsx';
 import AboutSuburb from './pages/aboutSuburb.jsx';
+import FilteredSuburb from './pages/filterdSuburb.jsx';
 
 var pages = {
   index: Index,
