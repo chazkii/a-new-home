@@ -9,8 +9,8 @@
     "mongoDatabase": "heroku_app35739427",
     "mongoPort": 41238,
     "mongoHost": "ds041238.mongolab.com",
-    "mongoUsername:": "app",
-    "mongoPassword:": "app",
+    "mongoUsername": "app",
+    "mongoPassword": "app",
     "errorHandlerOptions": {"dumpExceptions": false, "showStack": false}
   }
 }

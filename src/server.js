@@ -19,9 +19,9 @@ var mongo = require('mongoskin');
 var mongoHostAndPortAndDatabase = config.mongoHost + ":" + config.mongoPort + '/' + config.mongoDatabase;
 var db;
 var db_url;
-if (config.mongoUser !== undefined) {
+if (config.mongoUsername !== undefined) {
     console.log("Using production settings");
-    db_url = "mongodb://" + config.mongoUser + ":" + config.mongoPassword + "@" + mongoHostAndPortAndDatabase;
+    db_url = "mongodb://" + config.mongoUsername + ":" + config.mongoPassword + "@" + mongoHostAndPortAndDatabase;
     db = mongo.db(db_url, {native_parser:true});
 } else {
     console.log("Using development settings");
