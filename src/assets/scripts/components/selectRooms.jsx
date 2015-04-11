@@ -24,7 +24,7 @@ export default React.createClass({
                 </select>
               </div>
             </div>
-          </fieldset> 
+          </fieldset>
         </form>
       </div>
     );

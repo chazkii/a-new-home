@@ -3,13 +3,13 @@ export default React.createClass({
   aboutSuburbGo: function(e) {
     e.preventDefault();
     var suburb = this.refs.suburbSelection.getDOMNode().value
-    
+
     if(suburb === "disabled") return;
 
     this.props.transitionCb('aboutSuburb', {suburb});
   },
   render: function() {
-    return (        
+    return (
      <div className='form-horizontal'>
       <form>
         <fieldset>
@@ -24,7 +24,7 @@ export default React.createClass({
               </select>
             </div>
           </div>
-        </fieldset> 
+        </fieldset>
       </form>
     </div>
    );

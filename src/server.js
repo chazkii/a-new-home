@@ -34,7 +34,7 @@ app.set('port', (process.env.PORT || 5000));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/'));
 
 // Store database on request
 app.use(function (req, res, next) {
@@ -46,19 +46,10 @@ app.use(function (req, res, next) {
 var routes = require('./routes/house');
 
 app.use('/', routes);
-app.get('/hello', function(request, response) {
-    response.send('Hello World!');
+
+app.get('/hello', function(req, res) {
+    res.send('hello');
 });
-
-app.get('/weather', function(req, res) {
-    var weatherByDistricts = require('./config/weather-stub.js');
-
-    res.locals = {
-        weatherByDistricts: weatherByDistricts
-    };
-
-    res.render('weather');
-})
 
 app.listen(app.get('port'), function() {
     console.log('Node app is running at localhost:' + app.get('port'));

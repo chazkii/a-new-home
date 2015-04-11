@@ -12,10 +12,10 @@ var reload = browserSync.reload;
 gulp.task('build:js', function() {
     return browserify({debug: true})
         .transform([babelify, reactify])
-        .require(require.resolve('./frontend/assets/scripts/index.jsx'), {entry: true})
+        .require(require.resolve('./src/assets/scripts/index.jsx'), {entry: true})
         .bundle()
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('frontend/assets/'))
+        .pipe(gulp.dest('src/assets/'))
         .pipe(reload({stream: true}));
 });
 
@@ -23,12 +23,12 @@ gulp.task('build', ['build:js']);
 
 gulp.task('watch', ['build'], function() {
     browserSync({
-        server: 'frontend/',
+        proxy: 'http://localhost:5000/',
         open: false,
         notify: false
     });
 
-    gulp.watch(['frontend/assets/scripts/**/*.{js,jsx}'], ['build:js']);
+    gulp.watch(['src/assets/scripts/**/*.{js,jsx}'], ['build:js']);
 });
 
 gulp.task('default', ['watch']);
