@@ -33,7 +33,9 @@ export default React.createClass({
 
     return (
       <div className='well well-lg row-fluid'>
-        <Handler transitionCb={this.transition} pageData={this.state.pageData} />
+        <div className='container'>
+            <Handler transitionCb={this.transition} pageData={this.state.pageData} />
+        </div>
       </div>
     );
   }
