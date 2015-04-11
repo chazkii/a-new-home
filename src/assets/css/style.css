@@ -25,9 +25,27 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     background-color: hsla(174, 100%, 29%, 0.2);
 }
 
-.intro .slogan, .intro .page-scroll {
+.intro h2 {
+    font-weight: 900 !important;
+    margin-bottom: 15px;
+}
+
+.intro .slogan {
     position: relative;
     z-index: 5;
+}
+
+.intro .slogan h4 {
+    font-style: italic;
+    font-size: 30px;
+}
+
+.intro .page-scroll {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -30px;
+    margin-bottom: 40px;
 }
 
 .form-control-wrapper .form-control:focus~.floating-label, .form-control-wrapper .form-control:not(.empty)~.floating-label {
