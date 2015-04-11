@@ -4,9 +4,26 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 }
 
 .intro {
+    position: relative;
   background: url(../images/home-background.jpg) no-repeat top center;
   background-size: cover;
   height: 100vh;
+}
+
+.intro:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    background-color: hsla(174, 100%, 29%, 0.3);
+}
+
+.intro .slogan, .intro .page-scroll {
+    position: relative;
+    z-index: 5;
 }
 
 .form-control-wrapper .form-control:focus~.floating-label, .form-control-wrapper .form-control:not(.empty)~.floating-label {
