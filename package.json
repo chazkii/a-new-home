@@ -32,15 +32,16 @@
     "body-parser": "~1.0.0",
     "chartist": "^0.7.3",
     "express": "~4.9.x",
+    "googlemaps": "*",
     "hbs": "^3.0.1",
     "jquery": "^2.1.3",
     "mongodb": "~1.4",
     "mongoskin": "*",
     "react": "^0.13.1",
-    "googlemaps": "*"
+    "react-icon-rating": "^0.2.0"
   },
   "scripts": {
-    "start": "nodemon src/server.js",
+    "start": "gulp watch & nodemon src/server.js",
     "test": "eslint src/ && jscs src/"
   }
 }
