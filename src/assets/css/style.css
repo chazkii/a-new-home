@@ -1,3 +1,7 @@
+body {
+    min-width: 320px;
+}
+
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
   font-family: 'Source Sans Pro', sans-serif !important;
   font-weight: 400 !important;
@@ -18,7 +22,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     left: 0;
     bottom: 0;
     content: '';
-    background-color: hsla(174, 100%, 29%, 0.3);
+    background-color: hsla(174, 100%, 29%, 0.2);
 }
 
 .intro .slogan, .intro .page-scroll {
@@ -33,4 +37,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 
 .home-section {
     min-height: 100vh;
+}
+
+.advanced-panel {
+    margin-top: 50px;
+}
+
+.advanced-panel--disabled {
+    display: none;
 }

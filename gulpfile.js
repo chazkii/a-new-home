@@ -14,6 +14,9 @@ gulp.task('build:js', function() {
         .transform([babelify, reactify])
         .require(require.resolve('./src/assets/scripts/index.jsx'), {entry: true})
         .bundle()
+        .on('error', function(err) {
+            console.log(err);
+        })
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('src/assets/'))
         .pipe(reload({stream: true}));
