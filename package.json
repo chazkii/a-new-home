@@ -36,10 +36,11 @@
     "jquery": "^2.1.3",
     "mongodb": "~1.4",
     "mongoskin": "*",
-    "react": "^0.13.1"
+    "react": "^0.13.1",
+    "googlemaps": "*"
   },
   "scripts": {
-    "start": "nodemon src/server.js & gulp watch",
+    "start": "nodemon src/server.js",
     "test": "eslint src/ && jscs src/"
   }
 }

@@ -10,6 +10,9 @@ var config = require('../config.json')[app.get('env')];
 // Error: Most middleware (like errorHandler) is no longer bundled with Express and must be installed separately. Please see https://github.com/senchalabs/connect#middleware.
 //app.use(express.errorHandler(config.errorHandlerOptions));
 
+// Google Maps
+var googlemaps = require('googlemaps');
+
 // Database
 
 var mongo = require('mongoskin');
@@ -27,6 +30,8 @@ if (config.mongoUser !== undefined) {
 }
 db.bind('wellington_house_listings');
 db.bind('wellington_bus_stops');
+db.bind('wellington_niwa_statistics');
+db.bind('wellington_suburb_boundaries');
 console.log("Connected to DB " + db_url);
 
 app.set('port', (process.env.PORT || 5000));
@@ -39,7 +44,7 @@ app.use(express.static(__dirname + '/'));
 // Store database on request
 app.use(function (req, res, next) {
     req.db = db;
-    console.log("joined req.db");
+    req.googlemaps = googlemaps;
     next();
 });
 

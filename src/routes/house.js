@@ -15,15 +15,13 @@ router.get('/listings', function (req, res) {
 });
 
 var MAX_DISTANCE_M = 100000;
-var STARTING_DISTANCE_M = 100;
-var INCR_M = 100;
 
 router.get('/nearest_bus_stop', function (req, res) {
     var db = req.db;
     var lat = parseFloat(req.query.lat);
     var lng = parseFloat(req.query.lng);
     query = {
-        "geometry" : {
+        "geometry": {
             $near: {
                 $geometry: {
                     type: "Point",
@@ -42,33 +40,114 @@ router.get('/nearest_bus_stop', function (req, res) {
             console.log("Didn't find one..");
         }
     });
-    //var current_distance = STARTING_DISTANCE_M;
-    //var query;
-    //var isFound = false;
-    //for (; current_distance < MAX_DISTANCE_M; current_distance += INCR_M) {
-    //    console.log("Searching nearest bus stop to lng " + lng + " lat " + lat + "at distance " + current_distance);
-    //    query = {
-    //        $near: {
-    //            $geometry: {
-    //                type: "Point",
-    //                coordinates: [lng, lat]
-    //            },
-    //            $maxDistance: current_distance
-    //        }
-    //    };
-    //    db.wellington_bus_stops.findOne(query, function (err, doc) {
-    //        if (doc !== undefined) {
-    //            console.log("YAY!");
-    //            isFound = true;
-    //            res.json(doc);
-    //        } else {
-    //            console.log("Didn't find one..");
-    //        }
-    //    });
-    //}
-    //if (!isFound) {
-    //    console.log("No where near any bus stop!");
-    //}
+});
+
+router.get('/bus_stops', function (req, res) {
+    var db = req.db;
+    var lat = parseFloat(req.query.lat);
+    var lng = parseFloat(req.query.lng);
+    var rangeM = parseInt(req.query.rangeM);
+    query = {
+        "geometry": {
+            $near: {
+                $geometry: {
+                    type: "Point",
+                    coordinates: [lng, lat]
+                },
+                $maxDistance: rangeM
+            }
+        }
+    };
+    db.wellington_bus_stops.find(query).toArray(function (err, doc) {
+        if (doc != undefined) {
+            console.log(doc);
+            res.json(doc);
+        } else {
+            console.log("Didn't find one..");
+        }
+    });
+});
+
+router.get('/bus_stops_per_suburb', function (req, res) {
+    var db = req.db;
+    var name = req.query.name;
+    db.wellington_suburb_boundaries.findOne({'properties.suburb': name}, {'geometry': 1}, function (err, doc) {
+        query = {
+            "geometry": {
+                $geoWithin: {
+                    $geometry: {
+                        type: "Polygon",
+                        coordinates: doc.geometry.coordinates
+                    }
+                }
+            }
+        };
+        db.wellington_bus_stops.find(query).toArray(function (err, doc) {
+            if (doc != undefined) {
+                console.log(doc);
+                res.json(doc);
+            }
+        });
+    });
+});
+
+router.get('/directions', function (req, res) {
+    var gm = req.googlemaps;
+    var startLat = parseFloat(req.query.startLat);
+    var startLng = parseFloat(req.query.startLng);
+    var endLat = parseFloat(req.query.endLat);
+    var endLng = parseFloat(req.query.endLng);
+    gm.directions(startLat + ',' + startLng, endLat + ',' + endLng, function (err, data) {
+        res.json(data);
+    })
+});
+var WEATHER_CODE_MAP = {
+    '1': "mean",
+    '2': 'mean', // Mean Air Temperature    Celsius
+    '3': 'mean',  // Mean Daily Maximum Air Temperature  Celsius
+    '4': 'mean',  // Mean Daily Minimum Air Temperature  Celsius
+    '9': 'mean',  // Total Sunshine  Hours
+    '33': 'mean',// Mean Wind Speed     M/Sec
+    '61': 'mean', // Standard Deviation Of Daily Mean Temperature.   Celsius
+    '64': "mean"
+}; //Mean Of 9am Relative Humidity   Percent
+
+router.get('/climate', function (req, res) {
+    var db = req.db;
+    db.wellington_suburb_boundaries.findOne({'properties.suburb': req.query.name}, {'geometry': 1}, function (err, doc) {
+        query = {
+            "geometry": {
+                $geoWithin: {
+                    $geometry: {
+                        type: "Polygon",
+                        coordinates: doc.geometry.coordinates
+                    }
+                }
+            }
+        };
+        //console.log(doc);
+        //console.log(doc.geometry.coordinates);
+        var suburb_data = {};
+        db.wellington_niwa_statistics.find(query, function (err, docs) {
+            suburb_data = {
+                '1': -999,
+                '2': -999, // Mean Air Temperature    Celsius
+                '3': -999,  // Mean Daily Maximum Air Temperature  Celsius
+                '4': -999,  // Mean Daily Minimum Air Temperature  Celsius - doesnt work but cbf fixing
+                '9': -999,  // Total Sunshine  Hours
+                '33': -999,// Mean Wind Speed     M/Sec
+                '61': -999, // Standard Deviation Of Daily Mean Temperature.   Celsius
+                '64': -999
+            };
+            docs.toArray().forEach(function (doc) {
+                console.log("current value = " + doc.value);
+                if (suburb_data[String(doc.code)] > doc.value) {
+                    suburb_data[String(doc.code)] = doc.value
+                }
+            });
+        });
+        res.json(suburb_data);
+    });
 });
 
 router.get('/housing', function (req, res) {
