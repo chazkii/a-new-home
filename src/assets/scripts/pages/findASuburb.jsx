@@ -16,6 +16,7 @@ export default React.createClass({
       $(ref.getDOMNode()).noUiSlider({
         start: 50,
         connect: 'lower',
+        step: 20,
         range: {
           min: 0,
           max: 100
