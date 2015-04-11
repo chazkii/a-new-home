@@ -1,19 +1,22 @@
 import React from 'react';
 export default React.createClass({
   aboutSuburbGo: function(e) {
-    var suburb = this.refs.suburbSelection.getDOMNode().value
-    this.props.transitionCb('aboutSuburb', {suburb});
     e.preventDefault();
+    var suburb = this.refs.suburbSelection.getDOMNode().value
+    
+    if(suburb === "disabled") return;
+
+    this.props.transitionCb('aboutSuburb', {suburb});
   },
   render: function() {
     return (        
      <div className='form-horizontal'>
-      <form onSubmit={this.aboutSuburbGo}>
+      <form>
         <fieldset>
           <div className="form-group">
             <div className="col-lg-10">
-              <select className="form-control" id="select" ref="suburbSelection">
-                <option value="" disabled>Select a suburb</option>
+              <select onChange={this.aboutSuburbGo} defaultValue="disabled" className="form-control" id="select" ref="suburbSelection">
+                <option value="disabled" disabled>Select a suburb</option>
                 <option>Te Aro</option>
                 <option>Mt Cook</option>
                 <option>Hataitai</option>
@@ -22,7 +25,6 @@ export default React.createClass({
             </div>
           </div>
         </fieldset> 
-        <input type="submit" className="btn btn-primary"></input>
       </form>
     </div>
    );
