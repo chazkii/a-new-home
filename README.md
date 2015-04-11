@@ -55,7 +55,7 @@ git rebase master
 # Push it to GitHub.
 git push origin deploy
 # Then push the code to Heroku.
-git push heroku deploy:master
+git push heroku deploy:master --force
 # Then see your thing running!
 heroku open
 ~~~

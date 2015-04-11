@@ -32,6 +32,7 @@ db.bind('wellington_house_listings');
 db.bind('wellington_bus_stops');
 db.bind('wellington_niwa_statistics');
 db.bind('wellington_suburb_boundaries');
+db.bind('wellington_wind_zones');
 console.log("Connected to DB " + db_url);
 
 app.set('port', (process.env.PORT || 5000));

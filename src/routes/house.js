@@ -29,6 +29,44 @@ router.get('/suburbs', function (req, res) {
     });
 });
 
+router.get('/wind_score_per_suburb', function (req, res) {
+    var db = req.db;
+    db.wellington_suburb_boundaries.findOne({'properties.suburb': req.query.name}, {'geometry': 1}, function (err, doc) {
+        query = {
+            "geometry": {
+                $geoIntersects: {
+                    $geometry: {
+                        type: "Polygon",
+                        coordinates: doc.geometry.coordinates
+                    }
+                }
+            }
+        };
+        db.wellington_wind_zones.find(query).toArray(function (err, docs) {
+            console.log("Found " + docs.length + " wind zones for " + req.query.name);
+            var sum = 0;
+            var processedLength = 0;
+            docs.forEach(function (doc) {
+                if (doc.properties.wind_code == 5) { // Ignore
+                    console.log("Wind code is SPECIAL_DATA, ignoring data point")
+                } else {
+                    console.log("Found wind code of " + doc.properties.wind_code + ", processing it.");
+                    var value = doc.properties.wind_code;
+                    if (value == 6) { // Mapping 6 down to 5 for score calculation
+                        value--;
+                    }
+                    sum += parseFloat(value);
+                    processedLength++;
+                }
+            });
+            var score = parseInt(sum / processedLength + 0.5); // rounding magic - always rounds down
+            var result = {};
+            result["score"] = score;
+            res.json(result);
+        });
+    });
+});
+
 router.get('/nearest_bus_stop', function (req, res) {
     var db = req.db;
     var lat = parseFloat(req.query.lat);
