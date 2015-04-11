@@ -7,7 +7,8 @@ import AboutSuburb from './pages/aboutSuburb.jsx';
 
 var pages = {
   index: Index,
-  aboutSuburb: AboutSuburb
+  aboutSuburb: AboutSuburb,
+  filteredSuburb: FilteredSuburb
 };
 
 export default React.createClass({
@@ -27,7 +28,7 @@ export default React.createClass({
       margin: 'auto'
     };
     return (
-      <div style={containerStyle}>
+      <div style={containerStyle} className='well well-lg row'>
        <div>Header</div>
        <Handler transitionCb={this.transition} pageData={this.state.pageData} />
       </div>
