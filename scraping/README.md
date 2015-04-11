@@ -30,3 +30,5 @@ mongoimport --host ds041238.mongolab.com:41238 -u <username> -p <password> --db 
 Filtered by proximity to Wellington's coordinates: -41.28888,174.7772, 50km
 
 `40750,21938,17029,8567,3145,3277,3385,3477`
+
+Date range: `1970 - 2015`
