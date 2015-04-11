@@ -59,7 +59,7 @@ router.get('/wind_score_per_suburb', function (req, res) {
                     processedLength++;
                 }
             });
-            var score = parseInt(sum / processedLength + 0.5); // rounding magic - always rounds down
+            var score = sum / processedLength;
             var result = {};
             result["score"] = score;
             res.json(result);
