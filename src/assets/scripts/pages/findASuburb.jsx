@@ -4,7 +4,7 @@ import React from 'react';
 
 export default React.createClass({
   componentDidMount: function() {
-    var refs = [this.refs.priceSlider, this.refs.climateSlider, this.refs.rainSlider, this.refs.transportSlider];
+    var refs = [this.refs.priceSlider, this.refs.climateSlider, this.refs.transportSlider];
     refs.forEach(function(ref) {
       $(ref.getDOMNode()).noUiSlider({
         start: 50,
@@ -30,12 +30,6 @@ export default React.createClass({
           <p style={{float: 'left'}}>???</p>
           <p style={{float: 'right'}}>???</p>
           <div style={{clear: 'both'}} ref='climateSlider' className='slider shor slider-success'></div>
-        </div>
-        <h1>Rainfall</h1>
-        <div>
-          <p style={{float: 'left'}}>Low</p>
-          <p style={{float: 'right'}}>High</p>
-          <div style={{clear: 'both'}} ref='rainSlider' className='slider shor slider-success'></div>
         </div>
         <h1>Transport</h1>
         <div>

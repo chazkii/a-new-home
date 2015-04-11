@@ -30,4 +30,4 @@ node_modules
 database
 
 # Browserify bundle
-frontend/assets/bundle.js
+src/assets/bundle.js
