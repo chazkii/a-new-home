@@ -21,14 +21,54 @@
         font-family: 'Source Sans Pro', sans-serif !important;
         font-weight: 400 !important;
       }
+
+      .navbar {
+        margin-bottom: 0 !important;
+      }
+
+      .full-background {
+        position: relative;
+        background-image: url('assets/images/home-background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 30vh;
+      }
+
+      .full-background:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        content: '';
+        background-color: rgba(240, 240, 117, 0.2);
+        display: block;
+      }
+
+      .big-title {
+        font-size: 70px;
+        font-weight: 700 !important;
+      }
+
+      .media-body .lead {
+        font-size: 30px;
+      }
+
+      .full-background .media {
+        position: relative;
+        z-index: 5;
+        margin-top: 5vh;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        overflow: initial;
+      }
     </style>
   </head>
   <body>
-    <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-    <header class="navbar navbar-bright navbar-fixed-top affix-top" role="banner" data-spy="affix" data-offset-top="80">
+    <header class="navbar navbar-bright affix-top" role="banner" data-spy="affix" data-offset-top="80">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -55,6 +95,27 @@
         </nav>
       </div>
     </header>
+
+
+    <section class="full-background">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-xs-12">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="/">
+                          <img class="media-object" width="128" height="128" src="assets/images/site-logo.png" alt="Logo">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h1 class="media-heading big-title">WhereYouLive</h1>
+                        <p class="lead">Helping you make the right choice</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     {{{body}}}
 
