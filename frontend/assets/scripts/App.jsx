@@ -34,8 +34,8 @@ export default React.createClass({
     };
     return (
       <div style={containerStyle} className='well well-lg row'>
-       <div>Header</div>
-       <Handler transitionCb={this.transition} pageData={this.state.pageData} />
+        <div><a href="javascript:void(0)" onClick={this.transition.bind(null, 'index')}><img src="assets/Lgog-02.png" width="480"/></a></div>
+        <Handler transitionCb={this.transition} pageData={this.state.pageData} />
       </div>
     );
   }
