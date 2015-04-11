@@ -26,6 +26,7 @@ if (config.mongoUser !== undefined) {
     db = mongo.db(db_url, {native_parser:true});
 }
 db.bind('wellington_house_listings');
+db.bind('wellington_bus_stops');
 console.log("Connected to DB " + db_url);
 
 app.set('port', (process.env.PORT || 5000));
