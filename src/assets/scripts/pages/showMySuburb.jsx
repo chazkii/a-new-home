@@ -24,7 +24,7 @@ var Result = React.createClass({
 export default React.createClass({
   render: function() {
     let results = this.props.pageData.map(function(suburbData, index) {
-      return <Result index={index} name={suburbData.properties.suburb} averagePrice={DataGenerator.price()} transport={"Number of stops: " + suburbData.busStop.numStops} climate={DataGenerator.climate()} />
+      return <Result index={index+1} name={suburbData.properties.suburb} averagePrice={DataGenerator.price()} transport={"Number of stops: " + suburbData.busStops.numStops} climate={DataGenerator.climate()} />
     });
     return (
       <div style={{margin: 'auto', width: '50%'}}>
