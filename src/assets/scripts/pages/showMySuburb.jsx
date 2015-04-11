@@ -1,4 +1,5 @@
 import React from 'react';
+import DataGenerator from '../dataGenerators.js';
 
 var Result = React.createClass({
   render: function() {
@@ -20,8 +21,8 @@ export default React.createClass({
     return (
       <div style={{margin: 'auto', width: '50%'}}>
         <h1>Suggested for you!</h1>
-        <Result index={1} name="Karori" averagePrice={"$$"} transport={"99%"} climate={"90%"} />
-        <Result index={2} name="Mt Cook" averagePrice={"$$$"} transport={"100%"} climate={"100%"} />
+        <Result index={1} name="Karori" averagePrice={DataGenerator.price()} transport={DataGenerator.transport()} climate={DataGenerator.climate()} />
+        <Result index={2} name="Mt Cook" averagePrice={DataGenerator.price()} transport={DataGenerator.transport()} climate={DataGenerator.climate()} />
       </div>
     );
   }

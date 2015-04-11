@@ -11,7 +11,7 @@ export default {
     return randomFromArray(climateTypes);
   },
   transport: function() {
-    return randomFromArray(transport);
+    return randomFromArray(transportTypes);
   },
   price: function() {
     return randomFromArray(price);
