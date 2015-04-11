@@ -23,7 +23,9 @@ gulp.task('build', ['build:js']);
 
 gulp.task('watch', ['build'], function() {
     browserSync({
-        server: 'frontend/'
+        server: 'frontend/',
+        open: false,
+        notify: false
     });
 
     gulp.watch(['frontend/assets/scripts/**/*.{js,jsx}'], ['build:js']);
