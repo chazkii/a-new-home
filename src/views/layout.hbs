@@ -3,54 +3,305 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WhereYouLive</title>
+    <title>WhereYouLive — Helping you make a good choice</title>
     <meta name="description" content="WhereYouLive — Helping you make a good choice">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
     <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
     <link href="assets/css/roboto.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/material.min.css" rel="stylesheet">
     <link href="assets/css/ripples.min.css" rel="stylesheet">
     <link href="assets/css/jquery.nouislider.pips.min.css" ref="stylesheet">
     <link href="assets/css/jquery.nouislider.min.css" ref="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/chartist.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-    <style>
-      body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-        font-family: 'Source Sans Pro', sans-serif !important;
-        font-weight: 400 !important;
-      }
-    </style>
+    <link href="assets/css/animate.css" ref="stylesheet">
+    <link href="assets/css/colors.css" ref="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/squad-theme.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   </head>
-  <body>
-    <!--[if lt IE 8]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  {{!-- Theme from http://bootstrapzero.com/bootstrap-template/squad --}}
+  <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="load"></div>
+    </div>
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <h1>WhereYouLive</h1>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Section: intro -->
+    <section id="intro" class="intro">
+
+        <div class="slogan">
+            <img width="128" height="128" src="assets/images/site-logo.png" alt="Logo">
+            <h2>Welcome to <span class="text_color">WhereYouLive</span> </h2>
+            <h4>We are here to help you make a good choice</h4>
+        </div>
+        <div class="page-scroll">
+            <a href="#service" class="btn btn-circle">
+                <i class="fa fa-angle-double-down animated"></i>
+            </a>
+        </div>
+    </section>
+    <!-- /Section: intro -->
+
+    <!-- Section: services -->
+    <section id="service" class="home-section text-center bg-gray">
+
+        <div class="heading-about">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                    <div class="section-heading">
+                    <h2>Our Services</h2>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="assets/images/icons/service-icon-1.png" alt="" />
+                    </div>
+                    <div class="service-desc">
+                        <h5>Print</h5>
+                        <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="assets/images/icons/service-icon-2.png" alt="" />
+                    </div>
+                    <div class="service-desc">
+                        <h5>Web Design</h5>
+                        <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="assets/images/icons/service-icon-3.png" alt="" />
+                    </div>
+                    <div class="service-desc">
+                        <h5>Photography</h5>
+                        <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3">
+                <div class="wow fadeInRight" data-wow-delay="0.2s">
+                <div class="service-box">
+                    <div class="service-icon">
+                        <img src="assets/images/icons/service-icon-4.png" alt="" />
+                    </div>
+                    <div class="service-desc">
+                        <h5>Cloud System</h5>
+                        <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- /Section: services -->
+
+
+
+
+    <!-- Section: contact -->
+    <section id="contact" class="home-section text-center">
+        <div class="heading-contact">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                    <div class="section-heading">
+                    <h2>Let's keep in touch</h2>
+                    <div class="lead">We'll keep you informed of new cities and data sources as we add them to the service.</div>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="boxed-grey">
+                <form id="contact-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-control-wrapper">
+                            <input class="form-control empty" type="email">
+                            <div class="floating-label">Your email address</div>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Stay up to date</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <!-- /Section: contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="wow shake" data-wow-delay="0.4s">
+                    <div class="page-scroll marginbot-30">
+                        <a href="#intro" id="totop" class="btn btn-circle">
+                            <i class="fa fa-angle-double-up animated"></i>
+                        </a>
+                    </div>
+                    </div>
+                    <p>&copy;Copyright 2015 - WhereYouLive. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    {{!-- <header class="navbar navbar-bright affix-top" role="banner" data-spy="affix" data-offset-top="80">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="brand" href="http://a-new-home.herokuapp.com/" title="WhereYouLive">WhereYouLive</a>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation" id="navbar">
+            <ul class="nav navbar-nav">
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0);">Wellington</a></li>
+                  </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:void(0);">About us</a></li>
+                <li><a href="http://wellington.startupweekend.com/" id="btnAbout">#SWWLG</a></li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <section class="full-background">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-xs-12">
+                    <div class="media">
+                      <div class="media-left">
+                        <a href="/">
+                          <img class="media-object" width="128" height="128" src="assets/images/site-logo.png" alt="Logo">
+                        </a>
+                      </div>
+                      <div class="media-body">
+                        <h1 class="media-heading big-title">WhereYouLive</h1>
+                        <p class="lead">Helping you make the right choice</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
 
     {{{body}}}
 
-        <script src="assets/scripts/jquery-1.10.2.min.js"></script>
-        <script src="assets/scripts/bootstrap.min.js"></script>
-        <script src="assets/scripts/jquery.nouislider.all.js"></script>
-        <script src="assets/scripts/ripples.min.js"></script>
-        <script src="assets/scripts/material.min.js"></script>
-        <script src="assets/bundle.js"></script>
-        <script>
-            $(document).ready(function() {
-                // This command is used to initialize some elements and make them work properly
-                $.material.init();
-            });
-        </script>
+    <script src="assets/scripts/lib/jquery-1.10.2.min.js"></script>
+    <script src="assets/scripts/lib/bootstrap.min.js"></script>
+    <script src="assets/scripts/lib/jquery.easing.min.js"></script>
+    <script src="assets/scripts/lib/jquery.scrollTo.js"></script>
+    <script src="assets/scripts/lib/jquery.nouislider.all.js"></script>
+    <script src="assets/scripts/lib/wow.min.js"></script>
+    <script src="assets/scripts/lib/ripples.min.js"></script>
+    <script src="assets/scripts/lib/material.min.js"></script>
+    <script src="assets/scripts/lib/squad-theme.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-          e.src='//www.google-analytics.com/analytics.js';
-          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-          ga('create','UA-XXXXX-X', 'auto');ga('send','pageview');
-        </script>
-    </body>
+    <script src="assets/bundle.js"></script>
+    <script>
+        $(document).ready(function() {
+            // This command is used to initialize some elements and make them work properly
+            $.material.init();
+        });
+    </script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X', 'auto');ga('send','pageview');
+    </script>
+  </body>
 </html>

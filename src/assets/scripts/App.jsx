@@ -30,14 +30,12 @@ export default React.createClass({
   },
   render: function() {
     var Handler = this.state.handler;
-    var containerStyle = {
-      width: '960px',
-      margin: 'auto'
-    };
+
     return (
-      <div style={containerStyle} className='well well-lg row'>
-        <div><a href="javascript:void(0)" onClick={this.transition.bind(null, 'index')}><img src="assets/Lgog-02.png" width="480"/></a></div>
-        <Handler transitionCb={this.transition} pageData={this.state.pageData} />
+      <div className='well well-lg row-fluid'>
+        <div className='container'>
+            <Handler transitionCb={this.transition} pageData={this.state.pageData} />
+        </div>
       </div>
     );
   }

@@ -29,6 +29,8 @@ gulp.task('watch', ['build'], function() {
     });
 
     gulp.watch(['src/assets/scripts/**/*.{js,jsx}'], ['build:js']);
+    gulp.watch(['src/assets/css/**/*.css'], reload);
+    gulp.watch(['src/views/**/*.hbs'], reload);
 });
 
 gulp.task('default', ['watch']);
