@@ -1,0 +1,16 @@
+{
+  "development": {
+    "mongoDatabase": "wellington",
+    "mongoPort": 27017,
+    "mongoHost": "127.0.0.1",
+    "errorHandlerOptions": {"dumpExceptions": true, "showStack": true}
+  },
+  "production": {
+    "mongoDatabase": "heroku_app35739427",
+    "mongoPort": 41238,
+    "mongoHost": "ds041238.mongolab.com",
+    "mongoUsername:": "app",
+    "mongoPassword:": "app",
+    "errorHandlerOptions": {"dumpExceptions": false, "showStack": false}
+  }
+}

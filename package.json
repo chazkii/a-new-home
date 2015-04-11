@@ -24,7 +24,10 @@
   },
   "dependencies": {
     "express": "~4.9.x",
-    "hbs": "^3.0.1"
+    "hbs": "^3.0.1",
+    "body-parser": "~1.0.0",
+    "mongodb": "~1.4",
+    "mongoskin": "*"
   },
   "scripts": {
     "start": "nodemon src/server.js",
