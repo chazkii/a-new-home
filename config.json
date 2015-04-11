@@ -2,7 +2,7 @@
   "development": {
     "mongoDatabase": "wellington",
     "mongoPort": 27017,
-    "mongoHost": "127.0.0.1",
+    "mongoHost": "localhost",
     "errorHandlerOptions": {"dumpExceptions": true, "showStack": true}
   },
   "production": {

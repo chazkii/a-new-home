@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
     res.render('index');
 });
 
@@ -70,25 +70,36 @@ router.get('/bus_stops', function (req, res) {
 
 router.get('/bus_stops_per_suburb', function (req, res) {
     var db = req.db;
-    var name = req.query.name;
-    db.wellington_suburb_boundaries.findOne({'properties.suburb': name}, {'geometry': 1}, function (err, doc) {
-        query = {
-            "geometry": {
-                $geoWithin: {
-                    $geometry: {
-                        type: "Polygon",
-                        coordinates: doc.geometry.coordinates
+    db.wellington_suburb_boundaries.find({}).toArray(function (err, docs) {
+        console.log("stating");
+        docs.forEach(function (doc) {
+            query = {
+                "geometry": {
+                    $geoWithin: {
+                        $geometry: {
+                            type: doc.geometry.type,
+                            coordinates: doc.geometry.coordinates
+                        }
                     }
                 }
-            }
-        };
-        db.wellington_bus_stops.find(query).toArray(function (err, doc) {
-            if (doc != undefined) {
-                console.log(doc);
-                res.json(doc);
-            }
+            };
+            var containerDoc = {};
+            db.wellington_bus_stops.find(query).toArray(function (err, doc) {
+                console.log("Found " + doc.length + " stops");
+                containerDoc.stops = doc;
+                containerDoc.numStops = doc.length;
+            });
+            setTimeout(function () {
+                db.wellington_suburb_boundaries.update({'properties.suburb': doc.properties.suburb}, {$set: {busStops: containerDoc}}, function (err, r) {
+                    if (err !== null) {
+                        console.log(err);
+                    }
+                    console.log(r + " documents with " + doc.properties.suburb + " updated!");
+                });
+            }, 1000);
         });
     });
+    res.json([{"status": "done"}]);
 });
 
 router.get('/directions', function (req, res) {
