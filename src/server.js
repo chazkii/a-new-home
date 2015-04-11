@@ -49,6 +49,16 @@ app.get('/hello', function(request, response) {
     response.send('Hello World!');
 });
 
+app.get('/weather', function(req, res) {
+    var weatherByDistricts = require('./config/weather-stub.js');
+
+    res.locals = {
+        weatherByDistricts: weatherByDistricts
+    };
+
+    res.render('weather');
+})
+
 app.listen(app.get('port'), function() {
     console.log('Node app is running at localhost:' + app.get('port'));
 });
