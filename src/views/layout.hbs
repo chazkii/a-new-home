@@ -73,7 +73,63 @@
     <!-- /Section: intro -->
 
     <!-- Section: services -->
-    <section id="service" class="home-section text-center bg-gray">
+    <section id="service" class="home-section text-center">
+    {{{body}}}
+    </section>
+    <!-- /Section: services -->
+
+    <!-- Section: contact -->
+    <section id="contact" class="home-section text-center  bg-gray">
+        <div class="heading-contact">
+            <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow bounceInDown" data-wow-delay="0.4s">
+                    <div class="section-heading">
+                    <h2>Let's keep in touch</h2>
+                    <div class="lead">We'll keep you informed of new cities and data sources as we add them to the service.</div>
+                    <i class="fa fa-2x fa-angle-down"></i>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="container">
+
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-5">
+                <hr class="marginbot-50">
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="boxed-white">
+                <form id="contact-form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-control-wrapper">
+                            <input class="form-control empty" type="email">
+                            <div class="floating-label">Your email address</div>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Stay up to date</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <!-- /Section: contact -->
+
+    {{!-- section about --}}
+    <section id="about" class="home-section text-center">
 
         <div class="heading-about">
             <div class="container">
@@ -152,60 +208,7 @@
         </div>
         </div>
     </section>
-    <!-- /Section: services -->
-
-
-
-
-    <!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
-        <div class="heading-contact">
-            <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="wow bounceInDown" data-wow-delay="0.4s">
-                    <div class="section-heading">
-                    <h2>Let's keep in touch</h2>
-                    <div class="lead">We'll keep you informed of new cities and data sources as we add them to the service.</div>
-                    <i class="fa fa-2x fa-angle-down"></i>
-
-                    </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="container">
-
-        <div class="row">
-            <div class="col-lg-2 col-lg-offset-5">
-                <hr class="marginbot-50">
-            </div>
-        </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="boxed-grey">
-                <form id="contact-form">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-control-wrapper">
-                            <input class="form-control empty" type="email">
-                            <div class="floating-label">Your email address</div>
-                            <span class="material-input"></span>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Stay up to date</button>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-        </div>
-    </section>
-    <!-- /Section: contact -->
+     {{!-- /section about --}}
 
     <footer>
         <div class="container">
@@ -225,36 +228,8 @@
     </footer>
 
 
-    {{!-- <header class="navbar navbar-bright affix-top" role="banner" data-spy="affix" data-offset-top="80">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" id="brand" href="http://a-new-home.herokuapp.com/" title="WhereYouLive">WhereYouLive</a>
-        </div>
-        <nav class="collapse navbar-collapse" role="navigation" id="navbar">
-            <ul class="nav navbar-nav">
-                <li>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cities <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0);">Wellington</a></li>
-                  </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0);">About us</a></li>
-                <li><a href="http://wellington.startupweekend.com/" id="btnAbout">#SWWLG</a></li>
-            </ul>
-        </nav>
-      </div>
-    </header>
 
-
-    <section class="full-background">
+    {{!-- <section class="full-background">
         <div class="container">
             <div class="row-fluid">
                 <div class="col-xs-12">
@@ -273,8 +248,6 @@
             </div>
         </div>
     </section> --}}
-
-    {{{body}}}
 
     <script src="assets/scripts/lib/jquery-1.10.2.min.js"></script>
     <script src="assets/scripts/lib/bootstrap.min.js"></script>

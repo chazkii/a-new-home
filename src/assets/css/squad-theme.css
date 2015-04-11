@@ -1,3 +1,5 @@
+/* Theme from http://bootstrapzero.com/bootstrap-template/squad */
+
 /* ==== Google font ==== */
 /* @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic'); */
 
@@ -370,6 +372,11 @@ hr {
 .boxed-grey {
 	background: #f9f9f9;
 	padding: 20px;
+}
+
+.boxed-white {
+    background: #ffffff;
+    padding: 20px;
 }
 
 .team h5 {
