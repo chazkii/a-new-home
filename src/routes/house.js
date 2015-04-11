@@ -16,6 +16,19 @@ router.get('/listings', function (req, res) {
 
 var MAX_DISTANCE_M = 100000;
 
+router.get('/suburbs', function (req, res) {
+    var db = req.db;
+    if (req.query.climateScore === undefined && req.query.housingScore === undefined && req.query.transportScore === undefined) {
+        res.json({'error': 'you are missing either climateScore, housingScore or transportScore as a GET param'})
+    }
+    var climateScore = parseInt(req.query.climateScore);
+    var housingScore = parseInt(req.query.housingScore);
+    var transportScore = parseInt(req.query.transportScore);
+    db.wellington_suburb_boundaries.find({}).limit(5).toArray(function (err, docs) {
+        res.json(docs)
+    });
+});
+
 router.get('/nearest_bus_stop', function (req, res) {
     var db = req.db;
     var lat = parseFloat(req.query.lat);
