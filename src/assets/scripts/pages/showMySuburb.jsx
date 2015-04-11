@@ -23,11 +23,13 @@ var Result = React.createClass({
 
 export default React.createClass({
   render: function() {
+    let results = this.props.pageData.map(function(suburbData, index) {
+      return <Result index={index} name={suburbData.properties.suburb} averagePrice={DataGenerator.price()} transport={"Number of stops: " + suburbData.busStop.numStops} climate={DataGenerator.climate()} />
+    });
     return (
       <div style={{margin: 'auto', width: '50%'}}>
         <h1>Suggested for you!</h1>
-        <Result index={1} name="Karori" averagePrice={DataGenerator.price()} transport={DataGenerator.transport()} climate={DataGenerator.climate()} />
-        <Result index={2} name="Mt Cook" averagePrice={DataGenerator.price()} transport={DataGenerator.transport()} climate={DataGenerator.climate()} />
+        {results}
       </div>
     );
   }

@@ -3,26 +3,33 @@
 import React from 'react';
 
 export default React.createClass({
-
   getInitialState() {
     return {
       showAdvanced: false
     };
   },
-
   componentDidMount: function() {
     var refs = [this.refs.priceSlider, this.refs.climateSlider, this.refs.transportSlider, this.refs.crimeSlider, this.refs.healthSlider, this.refs.cultureSlider];
     refs.forEach(function(ref) {
       $(ref.getDOMNode()).noUiSlider({
         start: 50,
         connect: 'lower',
-        step: 20,
+        step: 1,
         range: {
-          min: 0,
-          max: 100
+          min: 1,
+          max: 5
         }
       });
     });
+  },
+  sendToServer: function() {
+    var score = [this.refs.priceSlider, this.refs.climateSlider, this.refs.transportSlider].map(function(ref) {
+      return parseInt($(ref.getDOMNode()).val(), 10);
+    });
+    $.post('/suburbs', {priceScore: score[0], climateScore: score[1], transportScore: score[2]}).done(function(resp) {
+      this.props.transitionCb('showMySuburb', resp);
+    });
+
   },
   render: function() {
 
@@ -47,7 +54,7 @@ export default React.createClass({
           <div style={{clear: 'both'}} ref='transportSlider' className='slider shor slider-success'></div>
         </div>
 
-        <a href="javascript:void(0)" onClick={this.props.transitionCb.bind(null, 'showMySuburb')} className='btn btn-primary'>Find my suburb</a>
+        <a href="javascript:void(0)" onClick={this.sendToServer} className='btn btn-primary'>Find my suburb</a>
 
         <div class="checkbox">
           <label>
