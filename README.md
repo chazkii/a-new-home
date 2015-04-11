@@ -16,6 +16,18 @@ $ NODE_ENV=development npm start
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+### Setting up the DB
+
+```sh
+# Dump the MongoLab DB
+mongodump -h ds041238.mongolab.com:41238 -d heroku_app35739427 -u <user> -p <pwd> -o <path to dump to>
+# Start the local DB
+mkdir database
+mongod --dbpath database
+# Import data into the local DB
+mongorestore -h localhost -d wellington <path to dump>
+```
+
 ## Deployment
 
 The site is deployed on [Heroku](http://heroku.com/) and also uses the [MongoLab addon](https://addons.heroku.com/mongolab).
