@@ -1,0 +1,15 @@
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.intro {
+  background: url(../images/home-background.jpg) no-repeat top center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.form-control-wrapper .form-control:focus~.floating-label, .form-control-wrapper .form-control:not(.empty)~.floating-label {
+  top: -11.8px !important;
+  font-size: 14.8px !important;
+}
