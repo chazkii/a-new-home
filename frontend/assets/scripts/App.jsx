@@ -5,11 +5,15 @@ import React from 'react';
 import Index from './pages/index.jsx';
 import AboutSuburb from './pages/aboutSuburb.jsx';
 import FilteredSuburb from './pages/filterdSuburb.jsx';
+import FindASuburb from './pages/findASuburb.jsx';
+import ShowMySuburb from './pages/showMySuburb.jsx';
 
 var pages = {
   index: Index,
   aboutSuburb: AboutSuburb,
-  filteredSuburb: FilteredSuburb
+  filteredSuburb: FilteredSuburb,
+  findASuburb: FindASuburb,
+  showMySuburb: ShowMySuburb
 };
 
 export default React.createClass({
