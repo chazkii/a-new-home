@@ -28,3 +28,6 @@ node_modules
 
 # Local MongoDB
 database
+
+# Browserify bundle
+frontend/assets/bundle.js

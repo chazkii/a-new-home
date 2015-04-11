@@ -1,11 +1,13 @@
 'use strict';
 
-window.Index = React.createClass({
+import React from 'react';
+
+export default React.createClass({
   aboutSuburbGo: function() {
     var pageData = {
       suburb: this.refs.suburbSelection.getDOMNode().value
     }
-    this.props.transitionCb('aboutSuburb', pageData); 
+    this.props.transitionCb('aboutSuburb', pageData);
   },
   render: function() {
     var leftStyle = {
@@ -38,7 +40,7 @@ window.Index = React.createClass({
                     </div>
                   </div>
                 </div>
-              </fieldset> 
+              </fieldset>
             </form>
           </div>
         </div>

@@ -1,8 +1,16 @@
+'use strict';
+
+import React from 'react';
+
+import Index from './pages/index.jsx';
+import AboutSuburb from './pages/aboutSuburb.jsx';
+
 var pages = {
   index: Index,
   aboutSuburb: AboutSuburb
 };
-window.App = React.createClass({
+
+export default React.createClass({
   getInitialState: function() {
     return {
       handler: pages.index,

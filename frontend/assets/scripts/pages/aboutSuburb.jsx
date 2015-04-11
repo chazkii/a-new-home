@@ -1,4 +1,8 @@
-window.AboutSuburb = React.createClass({
+'use strict';
+
+import React from 'react';
+
+export default React.createClass({
   render: function() {
     return (
       <div>
@@ -17,7 +21,7 @@ window.AboutSuburb = React.createClass({
                   </select>
                 </div>
               </div>
-            </fieldset> 
+            </fieldset>
           </form>
         </div>
         <h2>Climate: 75%</h2>
