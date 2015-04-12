@@ -28,6 +28,9 @@ export default React.createClass({
   transition: function(to, pageData) {
     this.setState({handler: pages[to], pageData: pageData});
   },
+  componentDidUpdate: function() {
+    $.material.init();
+  },
   render: function() {
     var Handler = this.state.handler;
 

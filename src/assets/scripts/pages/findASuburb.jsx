@@ -56,7 +56,7 @@ export default React.createClass({
 
         <a href="javascript:void(0)" onClick={this.sendToServer} className='btn btn-primary'>Find my suburb</a>
 
-        <div class="checkbox">
+        <div className="togglebutton">
           <label>
             <input type="checkbox" onClick={this.toggleAdvanced}></input>
             <span> Advanced search</span>
@@ -68,6 +68,27 @@ export default React.createClass({
             Please <a href="javascript:void(0)">upgrade your account</a> to start using those data sources.
           </p>
 
+          <div style={{width: '75%', margin: 'auto'}}>
+            <h2>Accomodation type</h2>
+            <div>
+              <div style={{float: 'left', width: '50%'}}>
+                <div className="radio radio-primary">
+                  <label>
+                    <input type='radio' checked/>
+                    <p style={{marginLeft: '-7px', marginTop: '-4px'}}>Apartment</p>
+                  </label>
+                </div>
+              </div>
+              <div style={{float: 'right', width: '50%'}}>
+                <div className="radio radio-primary">
+                  <label>
+                    <input type='radio'/>
+                    <p style={{marginLeft: '-7px', marginTop: '-4px'}}>House</p>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
           <h1>Crime rates</h1>
           <div>
             <p style={{float: 'left'}}>???</p>
@@ -97,7 +118,7 @@ export default React.createClass({
 
   toggleAdvanced() {
     this.setState({
-        showAdvanced: !this.state.showAdvanced
+      showAdvanced: !this.state.showAdvanced
     });
   }
 });
