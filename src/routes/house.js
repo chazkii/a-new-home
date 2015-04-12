@@ -16,6 +16,16 @@ router.get('/listings', function (req, res) {
 
 var MAX_DISTANCE_M = 100000;
 
+function specialSort(a, b) {
+    if (a.finalScore < b.finalScore) {
+        return 1;
+    }
+    if (a.finalScore > b.finalScore) {
+        return -1;
+    }
+    return 0;
+}
+
 router.get('/suburbs', function (req, res) {
     var db = req.db;
     if (req.query.climateScore === undefined && req.query.housingScore === undefined && req.query.transportScore === undefined) {
@@ -24,8 +34,28 @@ router.get('/suburbs', function (req, res) {
     var climateScore = parseInt(req.query.climateScore);
     var housingScore = parseInt(req.query.housingScore);
     var transportScore = parseInt(req.query.transportScore);
-    db.wellington_suburb_boundaries.find({}).limit(5).toArray(function (err, docs) {
-        res.json(docs)
+    //{housingScore: {$gte: housingScore}, transportScore: {$gte: transportScore}}
+    db.wellington_suburb_boundaries.find().toArray(function (err, docs) {
+        console.log("Got all suburb data of " + docs.length + " docs");
+        var lookupArray = [];
+        docs.forEach(function (doc) {
+            console.log("Calculating score for " + doc.properties.suburb);
+            var finalScore = doc.windScore * climateScore + doc.housingPriceScore * housingScore + doc.transportScore * transportScore;
+            lookupArray.push({"id": doc._id, "finalScore": finalScore, "name": doc.properties.suburb});
+        });
+        lookupArray.sort(specialSort);
+        //lookupArray.forEach(function (doc) {
+        //    console.log("lll " + doc.finalScore);
+        //});
+        var winnerArray = lookupArray.slice(0,5);
+        var idArray = [];
+        winnerArray.forEach(function (winner) {
+            console.log("highest score = " + winner.finalScore + " for " + winner.name);
+            idArray.push(winner.id);
+        });
+        db.wellington_suburb_boundaries.find({_id:{ $in: idArray}}).toArray(function (err, docs) {
+            res.json(docs)
+        });
     });
 });
 
@@ -47,7 +77,7 @@ router.get('/wind_score_per_suburb', function (req, res) {
             var sum = 0;
             var processedLength = 0;
             docs.forEach(function (doc) {
-                if (doc.properties.wind_code == 5) { // Ignore
+                if (doc.properties.wind_code == 5 || doc.properties.wind_code > 7) { // Ignore
                     console.log("Wind code is SPECIAL_DATA, ignoring data point")
                 } else {
                     console.log("Found wind code of " + doc.properties.wind_code + ", processing it.");
