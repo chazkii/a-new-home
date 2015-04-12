@@ -37,17 +37,17 @@ export default React.createClass({
       <div style={{margin: 'auto', width: '50%'}}>
         <h1>House Price</h1>
         <div>
-          <p style={{float: 'left'}}>Min</p>
-          <p style={{float: 'right'}}>Max</p>
+          <p style={{float: 'left'}}>Low</p>
+          <p style={{float: 'right'}}>High</p>
           <div style={{clear: 'both'}} ref='priceSlider' className='slider shor slider-success'></div>
         </div>
         <h1>Climate</h1>
         <div>
-          <p style={{float: 'left'}}>???</p>
-          <p style={{float: 'right'}}>???</p>
+          <p style={{float: 'left'}}>Humid</p>
+          <p style={{float: 'right'}}>Dry</p>
           <div style={{clear: 'both'}} ref='climateSlider' className='slider shor slider-success'></div>
         </div>
-        <h1>Transport</h1>
+        <h1>Public Transport</h1>
         <div>
           <p style={{float: 'left'}}>Near</p>
           <p style={{float: 'right'}}>Far</p>
