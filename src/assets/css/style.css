@@ -21,7 +21,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     left: 0;
     bottom: 0;
     content: '';
-    background-color: hsla(174, 100%, 29%, 0.2);
+    background-color: hsla(18, 87%, 68%, 0.2);
 }
 
 .intro h2 {
