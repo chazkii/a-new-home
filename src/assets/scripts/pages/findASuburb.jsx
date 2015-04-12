@@ -34,83 +34,85 @@ export default React.createClass({
   render: function() {
 
     return (
-      <div style={{margin: 'auto', width: '50%'}}>
-        <h1>House Price</h1>
-        <div>
-          <p style={{float: 'left'}}>Low</p>
-          <p style={{float: 'right'}}>High</p>
-          <div style={{clear: 'both'}} ref='priceSlider' className='slider shor slider-success'></div>
-        </div>
-        <h1>Climate</h1>
-        <div>
-          <p style={{float: 'left'}}>Humid</p>
-          <p style={{float: 'right'}}>Dry</p>
-          <div style={{clear: 'both'}} ref='climateSlider' className='slider shor slider-success'></div>
-        </div>
-        <h1>Public Transport</h1>
-        <div>
-          <p style={{float: 'left'}}>Near</p>
-          <p style={{float: 'right'}}>Far</p>
-          <div style={{clear: 'both'}} ref='transportSlider' className='slider shor slider-success'></div>
-        </div>
+      <div id="glorious-hack">
+        <div style={{margin: 'auto', width: '50%'}}>
+          <h1>House Price</h1>
+          <div>
+            <p style={{float: 'left'}}>Low</p>
+            <p style={{float: 'right'}}>High</p>
+            <div style={{clear: 'both'}} ref='priceSlider' className='slider shor slider-success'></div>
+          </div>
+          <h1>Climate</h1>
+          <div>
+            <p style={{float: 'left'}}>Humid</p>
+            <p style={{float: 'right'}}>Dry</p>
+            <div style={{clear: 'both'}} ref='climateSlider' className='slider shor slider-success'></div>
+          </div>
+          <h1>Public Transport</h1>
+          <div>
+            <p style={{float: 'left'}}>Near</p>
+            <p style={{float: 'right'}}>Far</p>
+            <div style={{clear: 'both'}} ref='transportSlider' className='slider shor slider-success'></div>
+          </div>
 
-        <a href="javascript:void(0)" onClick={this.sendToServer} className='btn btn-primary'>Find my suburb</a>
+          <a href="javascript:void(0)" onClick={this.sendToServer} className='btn btn-primary'>Find my suburb</a>
 
-        <div className="togglebutton">
-          <label>
-            <input type="checkbox" onClick={this.toggleAdvanced}></input>
-            <span> Advanced search</span>
-          </label>
-        </div>
+          <div className="togglebutton">
+            <label>
+              <input type="checkbox" onClick={this.toggleAdvanced}></input>
+              <span> Advanced search</span>
+            </label>
+          </div>
 
-        <div className={this.state.showAdvanced ? 'advanced-panel boxed-grey' : 'advanced-panel advanced-panel--disabled'}>
-          <p className='lead'>
-            Please <a href="javascript:void(0)">upgrade your account</a> to start using those data sources.
-          </p>
+          <div className={this.state.showAdvanced ? 'advanced-panel boxed-grey' : 'advanced-panel advanced-panel--disabled'}>
+            <p className='lead'>
+              Please <a href="javascript:void(0)">upgrade your account</a> to start using those data sources.
+            </p>
 
-          <div style={{width: '75%', margin: 'auto'}}>
-            <h2>Accomodation type</h2>
-            <div>
-              <div style={{float: 'left', width: '50%'}}>
-                <div className="radio radio-primary">
-                  <label>
-                    <input type='radio' checked/>
-                    <p style={{marginLeft: '-7px', marginTop: '-4px'}}>Apartment</p>
-                  </label>
+            <div style={{width: '75%', margin: 'auto'}}>
+              <h2>Accomodation type</h2>
+              <div>
+                <div style={{float: 'left', width: '50%'}}>
+                  <div className="radio radio-primary">
+                    <label>
+                      <input type='radio' checked/>
+                      <p style={{marginLeft: '-7px', marginTop: '-4px'}}>Apartment</p>
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div style={{float: 'right', width: '50%'}}>
-                <div className="radio radio-primary">
-                  <label>
-                    <input type='radio'/>
-                    <p style={{marginLeft: '-7px', marginTop: '-4px'}}>House</p>
-                  </label>
+                <div style={{float: 'right', width: '50%'}}>
+                  <div className="radio radio-primary">
+                    <label>
+                      <input type='radio'/>
+                      <p style={{marginLeft: '-7px', marginTop: '-4px'}}>House</p>
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <h1>Crime rates</h1>
-          <div>
-            <p style={{float: 'left'}}>???</p>
-            <p style={{float: 'right'}}>???</p>
-            <div style={{clear: 'both'}} ref='crimeSlider' className='slider shor slider-success' disabled="disabled"></div>
-          </div>
+            <h1>Crime rates</h1>
+            <div>
+              <p style={{float: 'left'}}>???</p>
+              <p style={{float: 'right'}}>???</p>
+              <div style={{clear: 'both'}} ref='crimeSlider' className='slider shor slider-success' disabled="disabled"></div>
+            </div>
 
-          <h1>Health facilities</h1>
-          <div>
-            <p style={{float: 'left'}}>???</p>
-            <p style={{float: 'right'}}>???</p>
-            <div style={{clear: 'both'}} ref='healthSlider' className='slider shor slider-success' disabled="disabled"></div>
-          </div>
+            <h1>Health facilities</h1>
+            <div>
+              <p style={{float: 'left'}}>???</p>
+              <p style={{float: 'right'}}>???</p>
+              <div style={{clear: 'both'}} ref='healthSlider' className='slider shor slider-success' disabled="disabled"></div>
+            </div>
 
-          <h1>Culture and arts</h1>
-          <div>
-            <p style={{float: 'left'}}>???</p>
-            <p style={{float: 'right'}}>???</p>
-            <div style={{clear: 'both'}} ref='cultureSlider' className='slider shor slider-success' disabled="disabled"></div>
-          </div>
+            <h1>Culture and arts</h1>
+            <div>
+              <p style={{float: 'left'}}>???</p>
+              <p style={{float: 'right'}}>???</p>
+              <div style={{clear: 'both'}} ref='cultureSlider' className='slider shor slider-success' disabled="disabled"></div>
+            </div>
 
-          <button disabled="disabled" className='btn btn-primary btn-disabled'>Find my suburb</button>
+            <button disabled="disabled" className='btn btn-primary btn-disabled'>Find my suburb</button>
+          </div>
         </div>
       </div>
     );
