@@ -26,7 +26,7 @@ export default React.createClass({
     var score = [this.refs.priceSlider, this.refs.climateSlider, this.refs.transportSlider].map(function(ref) {
       return parseInt($(ref.getDOMNode()).val(), 10);
     });
-    $.get('/suburbs', {priceScore: score[0], climateScore: score[1], transportScore: score[2]}).done((resp) => {
+    $.get('/suburbs', {housingScore: score[0], climateScore: score[1], transportScore: score[2]}).done((resp) => {
       this.props.transitionCb('showMySuburb', resp);
     });
 
