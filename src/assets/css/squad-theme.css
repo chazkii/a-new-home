@@ -540,10 +540,6 @@ footer {
 
 }
 
-footer p {
-    color: #f8f8f8;
-}
-
 /* ==========================
 Parallax
 ============================= */
@@ -615,7 +611,7 @@ Parallax
 
 .btn-circle.btn-dark {
     border: 2px solid #666;
-    color: #666;
+    color: #666 !important;
 }
 
 
